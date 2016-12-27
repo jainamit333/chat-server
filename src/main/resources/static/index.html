@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello WebSocket</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="connect">WebSocket connection:</label>
+                    <span id="connect"  >Connected</span>
+                    <span id="disconnect"  disabled="disabled">Disconnected
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="form-inline" id="startServerForm">
+                <div class="form-group">
+                    <label for="clientId">What is your Id?</label>
+                    <input type="text" id="clientId" class="form-control" placeholder="Your id here...">
+                </div>
+                <button id="send" class="btn btn-default" type="submit">Start Chat Server</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <br><br>
+        <div>
+            <input type="text" class="form-control" placeholder="destination id" aria-describedby="basic-addon1"
+                   id="messageBoxDes" style="width: 200px;">
+            <div class="input-group">
+
+                     <input type="text" class="form-control" placeholder="message" aria-describedby="basic-addon1"
+                       id="messageBox">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="sendMessage">Send!</button>
+                        </span>
+            </div>
+        </div>
+
+        <div class="col-md-12" style="height: 400px;overflow-y: scroll">
+            <table id="conversation" class="table table-striped" >
+                <thead>
+                <tr>
+                    <th>Chat History</th>
+                </tr>
+                <tr>
+                    <th colspan="1">FROM</th>
+                    <th colspan="10">MESSAGE</th>
+                </tr>
+                </thead>
+                <tbody id="greetings">
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    </form>
+</div>
+</body>
+</html>
